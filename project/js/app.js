@@ -4,6 +4,14 @@
 
         var newTodo = document.querySelector(".new-todo")
         var todoList = document.querySelector(".todo-list")
+
+
+        // get Todos from localStorage
+        const storedTodos = JSON.parse(localStorage.getItem("todos"));
+
+        if (storedTodos) {
+            todoList.innerHTML = storedTodos;
+        }
     
         console.log(newTodo)
 
@@ -60,6 +68,10 @@
                     todoItem.classList.remove("completed")
                     }
                 })
+
+                localStorage.setItem("todos", JSON.stringify(todoList.innerHTML));
+                
+                console.log(localStorage)
             }
         })
     
@@ -96,10 +108,10 @@
 
         const clearBtn = document.querySelector(".clear-completed")
             
-            clearBtn.addEventListener("click", () => {
-                const completedToDos = todoList.querySelectorAll(".completed")
-                for(const completedToDo of completedToDos) {
+        clearBtn.addEventListener("click", () => {
+            const completedToDos = todoList.querySelectorAll(".completed")
+            for(const completedToDo of completedToDos) {
                     completedToDo.remove()
-                }
-            })
+            }
+        })
     });
