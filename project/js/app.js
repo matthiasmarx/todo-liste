@@ -92,5 +92,12 @@
 
         // clear all completed toDos on clear button
 
-        
+        const clearBtn = document.querySelector(".clear-completed")
+            
+            clearBtn.addEventListener("click", () => {
+                const completedToDos = todoList.querySelectorAll(".completed")
+                for(const completedToDo of completedToDos) {
+                    completedToDo.remove()
+                }
+            })
     });
