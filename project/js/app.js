@@ -7,6 +7,8 @@
     
         console.log(newTodo)
 
+        // const enterBtn = 13
+
         /*Add new ToDo to list*/
 
         newTodo.addEventListener("keypress", (e) => {
